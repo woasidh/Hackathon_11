@@ -27,8 +27,8 @@ button.rbc-input::-moz-focus-inner {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    border: 2px solid #ddd;
-    border-radius: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     background: white;
     padding-top: 15px;
 }
@@ -129,6 +129,7 @@ button.rbc-input::-moz-focus-inner {
     align-items: center;
     margin-bottom: 10px;
     font-size: 16px;
+    padding-bottom: 10px;
 }
 .rbc-toolbar .rbc-toolbar-label {
     flex-grow: 1;
@@ -136,7 +137,7 @@ button.rbc-input::-moz-focus-inner {
     padding-left: 30px;
     margin-bottom: -6px;
     font-size: 1.2em;
-    font-weight: 700;
+    font-weight: 500;
 }
 .rbc-toolbar button:first-child {
     display: none;
@@ -233,7 +234,6 @@ button.rbc-input::-moz-focus-inner {
     background-color: #ccccff;
     border-radius: 5px;
     color: #fff;
-    cursor: pointer;
     width: 100%;
     text-align: left;
     font-size: 0.85em;
@@ -246,7 +246,6 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-event.rbc-selected,
 .rbc-day-slot .rbc-selected.rbc-background-event {
-    background-color: #265985;
 }
 .rbc-event:focus,
 .rbc-day-slot .rbc-background-event:focus {
@@ -284,6 +283,7 @@ button.rbc-input::-moz-focus-inner {
 .rbc-row {
     display: flex;
     flex-direction: row;
+    margin-bottom: 3px;
 }
 
 .rbc-row-segment {
@@ -312,12 +312,13 @@ button.rbc-input::-moz-focus-inner {
     user-select: none;
     -webkit-user-select: none;
     height: 100%;
+    border-top: 1px solid #ddd;
+    padding: 3px 0px;
 }
 
 .rbc-month-header {
     display: flex;
     flex-direction: row;
-    color: white;
 }
 
 .rbc-month-row {
