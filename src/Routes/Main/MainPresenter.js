@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Calendar, momentLocalizer } from 'react-big-calendar'
+import moment from "moment";
 
 const Wrapper = styled.div`
     
@@ -49,16 +51,20 @@ const Bottom = styled.div`
 
 `;
 
-const Calendar = styled.div`
-
+const CalendarContainer = styled.div`
+    height: 600px;
+    width: 100%;
 `;
 
 const Chat = styled.div`
 
 `;
 
+const calendarStyle = {};
+
 
 export default () => {
+    const localizer = momentLocalizer(moment);
     return (
         <Wrapper>
             <Top>
@@ -74,9 +80,14 @@ export default () => {
                 </Right>
             </Top>
             <Bottom>
-                <Calendar>
-
-                </Calendar>
+                <CalendarContainer>
+                <Calendar
+                    localizer={localizer}
+                    startAccessor="start"
+                    endAccessor="end"
+                    style={calendarStyle}
+                />
+                </CalendarContainer>
                 <Chat>
 
                 </Chat>
