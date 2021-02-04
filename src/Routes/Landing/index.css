@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'CookieRun-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 button{
     outline: none;
     background-color: transparent;
@@ -12,22 +19,24 @@ nav{
 }
 
 .landing__content{
+    overflow: hidden;
     display: flex;
     max-width: 1200px;
     margin :auto;
     margin-top: 80px;
+    height : 900px
 }
 
 /* landingleft */
 .landing__left{
-    flex-basis: 50%;
+    flex-basis: 45%;
     padding : 3rem;
     padding-top: 4rem;
 }
 
 .landing__left__title{
-    font-family: 'CookieRunOTF-Bold';
-    font-size: 70px;
+    font-family: 'CookieRun-Regular';
+    font-size: 65px;
     color : #F5D11F;
     margin-bottom: 2rem;
 }
@@ -38,26 +47,35 @@ nav{
 
 .landing__left__authBtn{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
-.landing__left__authBtn > button{
-    width : 170px;
-    height: 50px;
-    border : 1px solid black;
+.landing__left__authBtn > a{
+    width : 180px;
+    height: 40px;
     border-radius: 30px;
-    margin: 1rem;
+    margin-bottom: 2rem;
 }
 
 .landing__left__circleCnt{
     display: flex;
+    justify-content: center;
     margin-bottom: 2rem;
+    align-items: center;
 }
 
 .landing__left__circleCnt > div {
-    width : 150px;
-    height : 150px;
+    width : 75px;
+    height : 75px;
+    border : 1px solid black;
+    margin : 1rem;
+    border-radius: 50%;
+}
+
+.landing__left__circleCnt > div:nth-child(2) {
+    width : 100px;
+    height : 100px;
     border : 1px solid black;
     margin : 1rem;
     border-radius: 50%;
@@ -65,4 +83,23 @@ nav{
 /* landing right */
 .landing__right{
     flex-basis: 50%;
+}
+
+.landing__left__signupBtn{
+    background-color: #F5D11F;
+    outline: none;
+    border : none;
+    text-align: center;
+    line-height : 40px;
+}
+
+.landing__left__loginBtn{
+    border : 1px solid #F5D11F;
+    text-align: center;
+    line-height : 40px;
+    color : gray;
+}
+
+.landing__left__moreInfo{
+    text-align: center;
 }

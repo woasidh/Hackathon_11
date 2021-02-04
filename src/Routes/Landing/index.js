@@ -14,29 +14,26 @@ function index() {
                         알바꼼꼼
                     </div>
                     <div className="landing__left__desc">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium saepe quibusdam sint delectus sunt quis odit tempora blanditiis culpa corporis ut, facilis, at debitis quidem provident asperiores, accusantium expedita quod!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium saepe quibusdam sint delectus sunt quis odit tempora blanditiis culpa corporis ut, facilis, at debitis quidem provident asperiores, accusantium expedita quod!
+                        매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 
                     </div>
                     <div className="landing__left__authBtn">
-                    <button className="landing__left__signupBtn">
+                    <a href = "/#/signup"className="landing__left__signupBtn">
                         가입하기
-                    </button>
-                    <button className="landing__left__signupBtn">
+                    </a>
+                    <a href = "/#/login"className="landing__left__loginBtn">
                         로그인하기
-                    </button>
+                    </a>
                     </div>
                     <div className="landing__left__circleCnt">
                         <div className="landing__left__c1">
-
                         </div>
                         <div className="landing__left__c2">
-
                         </div>
                         <div className="landing__left__c3">
-
                         </div>
                     </div>
                     <div className="landing__left__moreInfo">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, molestiae doloribus laboriosam sit iste ratione eaque ducimus laborum aliquid, vitae repellat modi ad veniam! Quasi molestias tenetur ratione ea praesentium.
+                        직원들과 원활한 소통이<br/> 가능합니다
                     </div>
                 </div>
                 <div className="landing__right">
