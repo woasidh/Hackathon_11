@@ -2,90 +2,51 @@ import React from "react";
 import styled from "styled-components";
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from "moment";
+import "./BigCalendar.css";
+import Navbar from "../../utils/Navbar/Navbar.js";
 
 const Wrapper = styled.div`
-    
-`;
-
-const Top = styled.div`
-    height: 62px;
-    padding: 0px 139px;
-    border-bottom: 1px solid gray;
-    display: flex;
-    justify-content: space-between;
-`;
-
-const Left = styled.div`
-    display: flex;
-    padding: 20px 0px;
-`;
-
-const Logo = styled.div`
-    width: 139px;
-    text-align: center;
-    font-family: CookieRunBold;
-`;
-
-const Select = styled.div`
-
-`;
-
-const Right = styled.div`
-    display: flex;
-    padding: 20px 0px;
-`;
-
-const Sub = styled.div`
-
-`;
-
-const Img = styled.div`
-    border-radius: 50px;
-    background: gray;
-    height: 30px;
-    width: 30px;
-    margin-top: -7px;
+    background: #eeeeee;
+    height: 100vh;
 `;
 
 const Bottom = styled.div`
-
+    padding-top: 100px;
+    padding-left: 139px;
+    padding-right: 139px;
+    display: flex;
 `;
 
 const CalendarContainer = styled.div`
-    height: 600px;
-    width: 100%;
+    height: 580px;
+    width: 800px;
 `;
 
 const Chat = styled.div`
-
+    margin-left: 30px;
+    border: 1px solid black;
+    width: 400px;
 `;
 
 const calendarStyle = {};
 
 
-export default () => {
+export default ({ eventList, onClickDate }) => {
     const localizer = momentLocalizer(moment);
     return (
         <Wrapper>
-            <Top>
-                <Left>
-                    <Logo>알바꼼꼼</Logo>
-                    <Select>캘린더</Select>
-                    <Select>매장 모니터링</Select>
-                </Left>
-                <Right>
-                    <Sub>새 소식</Sub>
-                    <Sub>내 정보</Sub>
-                    <Img></Img>
-                </Right>
-            </Top>
+            <Navbar></Navbar>
             <Bottom>
                 <CalendarContainer>
                 <Calendar
                     localizer={localizer}
+                    events={eventList}
+                    view="month"
+                    views={["month"]}
                     startAccessor="start"
                     endAccessor="end"
                     style={calendarStyle}
+                    onNavigate={date => onClickDate(date) }
                 />
                 </CalendarContainer>
                 <Chat>
