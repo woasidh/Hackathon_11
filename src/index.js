@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './Styles/GlobalStyles.js';
 import App from './Components/App';
 
 ReactDOM.render(
