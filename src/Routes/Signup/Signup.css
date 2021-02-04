@@ -1,0 +1,105 @@
+.signup__content{
+    margin : auto;
+    margin-top: 80px;
+    width : 406px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup__title{
+    margin-top: 5rem;
+    color : #F5D11F;
+    font-family: 'CookieRunOTF-Bold';
+    font-size: 42px;
+}
+
+.signup__desc{
+    margin-top: 44px;
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 28px;
+}
+
+.signup__content > input{
+    width: 100%;
+    margin : 13px 0;
+    margin-right: auto;
+    height: 62px;
+    border : 1px solid gray;
+    border-radius: 10px;
+    font-size: 17px;
+    padding-left: 1rem;
+}
+
+.signup__idCtn{
+    position: relative;
+    width : 100%;
+    display: flex;
+}
+
+.signup__idCtn > button{
+    position: absolute;
+    bottom : 20px;
+    right :-120px;
+    border : 1px solid black;
+    width : 100px;
+    height : 50px;
+    border-radius: 10px;
+    background-color: lightgray;
+    color : black;
+    border : none;
+}
+
+.signup__idCtn > input{
+    width: 100%;
+    margin : 13px 0;
+    margin-right: auto;
+    height: 62px;
+    border : 1px solid gray;
+    border-radius: 10px;
+    font-size: 17px;
+    padding-left: 1rem;
+}
+
+.signupBtn{
+    margin-top: 1rem;
+    width : 126px;
+    height : 62px;
+    border-radius: 10px;
+    background-color:  #F5D11F;
+    color : white;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.signup__usrTypeCnt{
+    display: flex;
+    justify-content: space-between;
+    width : 100%;
+}
+
+
+.signup__usrType{
+    margin : 1rem 1rem;
+    width : 126px;
+    height : 62px;
+    border-radius: 10px;
+    background-color:  lightgray;
+    color : black;
+    font-size: 17px;
+    font-weight: bold;
+    width : 40%;
+}
+
+.signup__usrType.active{
+    color : white;
+    background-color : #F5D11F;
+}
+
+.signup__checkId{
+    transform: translateX(280px) translateY(-100px);
+    width : 80px;
+    border : 1px solid black;
+}
