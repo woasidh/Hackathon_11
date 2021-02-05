@@ -17,10 +17,8 @@ function index() {
                         알바꼼꼼
                     </div>
                     <div className="landing__left__desc">
-                    직원/알바 급여 자동 정산 및 매장 일정 관리 플랫폼
-                    <br/>
-                    고용주는 알바생들의 급여 및 매장 현재 상황을 한눈에 확인할 수 있습니다.
-                    알바생들은 손쉽게 대타를 구하고, 자신의 아르바이트 스케줄을 관리할 수 있습니다.
+                    알바꼼꼼은 직원/알바 급여 정산 및 일정관리를 도와주는 플랫폼입니다. 
+                    출퇴근 확인, 근무 시간 조정, 매장 관리 및 급여 정산 등의 기능을 직관적인 캘린더 UI를 통해 편리하게 이용할 수 있습니다.                    
                     </div>
                     <div className="landing__left__authBtn">
                     <a href = "/#/signup"className="landing__left__signupBtn">
