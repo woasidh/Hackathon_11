@@ -111,7 +111,7 @@ const List = styled.div`
 `;
 
 
-export default ({ type, year, month, day, workers, events, onClickButton, substitute }) => {
+export default ({ type, year, month, day, workers, events, onClickButton, userType, substitute }) => {
 
     const [counter, setcounter] = useState(0);
 
@@ -202,10 +202,12 @@ export default ({ type, year, month, day, workers, events, onClickButton, substi
                                     </Worker>
                                 ))}
                             </Bottom>
-                            <ButtonContainer>
-                                <RoundButton onClick={onClickButton} id="출근" style={{ background: "#e26262", boxShadow: "2px 2px 2px #aaa" }}>출근</RoundButton>
-                                <RoundButton onClick={onClickButton} id="퇴근" style={{ background: "#50c878", boxShadow: "2px 2px 2px #aaa" }}>퇴근</RoundButton>
-                            </ButtonContainer>
+                            {userType === "employee" && (
+                                <ButtonContainer>
+                                    <RoundButton onClick={onClickButton} id="출근" style={{ background: "#e26262", boxShadow: "2px 2px 2px #aaa" }}>출근</RoundButton>
+                                    <RoundButton onClick={onClickButton} id="퇴근" style={{ background: "#50c878", boxShadow: "2px 2px 2px #aaa" }}>퇴근</RoundButton>
+                                </ButtonContainer>
+                            )}
                         </>
                     )}
                     {type === "대타" && (
