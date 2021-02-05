@@ -10,7 +10,6 @@ export default ({ type, year, month, day, workers }) => {
     const token = useSelector(state => state.user.userinfo.token);
     const userType = useSelector(state => state.user.userinfo.user_type);
     const userId = useSelector(state => state.user.userinfo.user_id);
-    const today = new Date().toString().split(" ");
     const payload = {
         token: token,
         year: year,
@@ -84,6 +83,7 @@ export default ({ type, year, month, day, workers }) => {
     // 대타 신청 수락 버튼 누르면 처리
     const onClickButton = e => {
         const id = e.target.id;
+        //return 0;
         if (id === "출근") {
             axios.patch('https://alba-api.herokuapp.com/workplace/' + workplace_id +'/attendance', payload ).then(response =>{
             if(response.data.result == "Success"){
@@ -121,10 +121,31 @@ export default ({ type, year, month, day, workers }) => {
                     console.log(response)
                     alert("다시 시도해 주세요.");
             }
-        })} else if(id === "수락") {
-
-        } else if(id === "신청") {
+        })} else if(id.split("_")[0] === "수락") {
+            const employee_id = id.split("_")[1];
+            const work = works.filter(element => element.employee_id === employee_id)[0];
+            const payload = {
+                token: token,
+                sub_wanted_id: work.id
+            }
+            axios.patch('https://alba-api.herokuapp.com/substitute/' + workplace_id +'/change', payload ).then(response =>{
+                if(response.data.result == "Success") {
+                    console.log(response)
+                    setSubstitute(curr => {
+                        const tmp = curr.filter(element => element.employee_id !== employee_id);
+                        console.log(tmp);
+                        return tmp;
+                    });
+                }else{
+                    console.log(response)
+                    alert("다시 시도해 주세요.");
+            }
+        })} else if(id === "신청") {
             const work = works.filter(element => element.employee_id === userId)[0]
+            if(work === undefined) {
+                alert("근무 요일이 아닙니다.");
+                return 0;
+            }
             const payload = {
                 token: token,
                 workplace_schedule_id: work.id
@@ -139,7 +160,6 @@ export default ({ type, year, month, day, workers }) => {
                             time: work.start_time.split(":")[0] + ":" + work.start_time.split(":")[1] + " ~ " + work.end_time.split(":")[0] + ":" + work.end_time.split(":")[1],
                             workplace_id: workplace_id
                         });
-                        console.log(tmp);
                         return tmp;
                     });
                 }else{
