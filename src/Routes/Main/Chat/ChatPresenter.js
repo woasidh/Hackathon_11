@@ -46,6 +46,7 @@ const Name = styled.div`
 const IsChecked = styled.div`
     font-size: 0.85em;
     color: green;
+    padding-left: 5px;
 `;
 
 const ButtonContainer = styled.div`
@@ -77,11 +78,22 @@ const Button = styled.div`
     margin-left: 80px;
 `;
 
-const Graph = styled.div``;
+const Graph = styled.div`
+    background: green;
+    width: 100%;
+    height: 200px;
+`;
 
 const Working = styled.div``;
 
 const Current = styled.div``;
+
+const Text = styled.div`
+    padding: 10px 0px;
+`;
+
+const List = styled.div``;
+const Person = styled.div``;
 
 export default ({type, year, month, day, workers, eventList}) => (
     <>
@@ -124,9 +136,21 @@ export default ({type, year, month, day, workers, eventList}) => (
             )}
             {type === "모니터링" && (
                 <Bottom>
-                    <Graph>그래프</Graph>
-                    <Working></Working>
-                    <Current></Current>
+                    <Graph></Graph>
+                    <Working>
+                        <Text>근무중</Text>
+                        <List>
+                            {workers.map(({name}) => (
+                                <Person>
+                                    <Img>{name[0]}</Img>
+                                    <Name>{name}</Name>
+                                </Person>
+                            ))}
+                        </List>
+                    </Working>
+                    <Current>
+                        <Text>혼잡도</Text>
+                    </Current>
                 </Bottom>
             )}
         </Wrapper>
