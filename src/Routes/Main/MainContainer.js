@@ -15,7 +15,6 @@ export default () => {
     const [selectDay, setDay] = useState(parseInt(today[2]));
     const [events, setEvents] = useState([]);
     const userType = useSelector(state => state.user.userinfo.user_type);
-
     const payload = {
         token: token,
         year: selectYear,

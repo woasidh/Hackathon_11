@@ -9,6 +9,7 @@ export default ({ type, year, month, day, workers }) => {
     const token = useSelector(state => state.user.userinfo.token);
     const userType = useSelector(state => state.user.userinfo.user_type);
     const userId = useSelector(state => state.user.userinfo.user_id);
+
     const today = new Date().toString().split(" ");
     const payload = {
         token: token,

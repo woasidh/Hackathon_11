@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from "moment";
@@ -94,10 +94,10 @@ const Selector = styled.select`
 const X = styled.div`
     cursor: pointer;
     position: absolute;
-    right: -30px;
-    top: -8px;
+    right: 10px;
+    top: 7px;
     font-size: 2.5em;
-    color: white;
+    color: lightgray;
 `;
 
 const Option = styled.option``;
@@ -107,6 +107,7 @@ const calendarStyle = {};
 
 export default ({ type, selectYear, selectMonth, selectDay, workers, events, onClickDate, onChangeSelect }) => {
     const localizer = momentLocalizer(moment);
+
     return (
         <Wrapper>
             <Navbar></Navbar>
@@ -128,7 +129,7 @@ export default ({ type, selectYear, selectMonth, selectDay, workers, events, onC
                                 {close => (
                                     <>
                                         <X onClick={close}>&times; </X>
-                                        <_Popup/>
+                                        <_Popup workerId = {worker/* .employee_id */} />
                                     </>
                                 )}
                             </Popup>
