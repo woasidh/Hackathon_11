@@ -29,11 +29,10 @@ const Worker = styled.div`
 
 const Img = styled.div`
     background: #F5D11F;
-    border-radius: 50px;
+    border-radius: 70px;
     width: 50px;
     height: 50px;
     margin-right: 10px;
-    cursor: pointer;
     text-align: center;
     line-height: 3;
     color: white;
@@ -54,6 +53,11 @@ const ButtonContainer = styled.div`
     text-align: right;
     display: flex;
     justify-content: flex-end;
+`;
+
+const Time = styled.div`
+    font-size: 0.85em;
+    padding: 0px 5px;
 `;
 
 const RoundButton = styled.div`
@@ -93,10 +97,21 @@ const Text = styled.div`
     padding: 10px 0px;
 `;
 
-const List = styled.div``;
 const Person = styled.div``;
 
-export default ({ type, year, month, day, workers, eventList }) => {
+const Substitute = styled.div`
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 5px 10px 5px;
+`;
+
+const List = styled.div`
+
+`;
+
+
+export default ({ type, year, month, day, workers, events, onClickButton, substitute }) => {
 
     const [counter, setcounter] = useState(0);
 
@@ -170,31 +185,47 @@ export default ({ type, year, month, day, workers, eventList }) => {
                     {type === "출근/퇴근" && (
                         <>
                             <Bottom>
-                                {workers.map(({ name }) => (
+                                { events.map(({ name, time, isChecked }) => (
                                     <Worker>
                                         <Img>{name[0]}</Img>
                                         <Name>{name}</Name>
-                                        <IsChecked>출근</IsChecked>
+                                        <Time>{time}</Time>
+                                        {isChecked === 0 && (
+                                            <IsChecked style={{color: "lightGray"}}>출근 예정</IsChecked>
+                                        )}
+                                        {isChecked === 1 && (
+                                            <IsChecked style={{color: "green"}}>출근</IsChecked>
+                                        )}
+                                        {isChecked === 2 && (
+                                            <IsChecked style={{color: "red"}}>퇴근</IsChecked>
+                                        )}
                                     </Worker>
                                 ))}
                             </Bottom>
                             <ButtonContainer>
-                                <RoundButton style={{ background: "#e26262" }}>출근</RoundButton>
-                                <RoundButton style={{ background: "#50c878" }}>퇴근</RoundButton>
+                                <RoundButton onClick={onClickButton} id="출근" style={{ background: "#e26262", boxShadow: "2px 2px 2px #aaa" }}>출근</RoundButton>
+                                <RoundButton onClick={onClickButton} id="퇴근" style={{ background: "#50c878", boxShadow: "2px 2px 2px #aaa" }}>퇴근</RoundButton>
                             </ButtonContainer>
                         </>
                     )}
                     {type === "대타" && (
+                        <>
                         <Bottom>
-                            {workers.map(({ name }) => (
-                                <Worker>
-                                    <Img>{name[0]}</Img>
-                                    <Name>{name}</Name>
-                                    <IsChecked>출근</IsChecked>
-                                    <Button>대타 신청</Button>
-                                </Worker>
-                            ))}
+                            <List>
+                                {substitute.map(({employee_id, name, time, workplace_id}) => (
+                                    <Substitute>
+                                        <Img>{name[0]}</Img>
+                                        <Name>{name}</Name>
+                                        <Time>{time}</Time>
+                                        <RoundButton onClick={onClickButton} id="수락" style={{ background: "#50c878", marginLeft: "70px", borderRadius: "10px", width: "50px", height: "30px", lineHeight: "2.2" }}>수락</RoundButton>
+                                    </Substitute>
+                                ))}
+                            </List>
                         </Bottom>
+                        <ButtonContainer>
+                            <RoundButton onClick={onClickButton} id="대타" style={{ background: "#F5D11F", boxShadow: "2px 2px 2px #aaa" }}>신청</RoundButton>
+                        </ButtonContainer>
+                        </>
                     )}
                     {type === "모니터링" && (
                         <div className="monitoring__cnt">

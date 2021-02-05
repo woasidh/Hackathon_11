@@ -105,7 +105,7 @@ const Option = styled.option``;
 const calendarStyle = {};
 
 
-export default ({ type, selectYear, selectMonth, selectDay, workers, eventList, onClickDate, onChangeSelect }) => {
+export default ({ type, selectYear, selectMonth, selectDay, workers, events, onClickDate, onChangeSelect }) => {
     const localizer = momentLocalizer(moment);
     return (
         <Wrapper>
@@ -141,7 +141,7 @@ export default ({ type, selectYear, selectMonth, selectDay, workers, eventList, 
                 <CalendarContainer>
                 <Calendar
                     localizer={localizer}
-                    events={eventList}
+                    events={events}
                     view="month"
                     views={["month"]}
                     startAccessor="start"
@@ -158,7 +158,7 @@ export default ({ type, selectYear, selectMonth, selectDay, workers, eventList, 
                 </SelectContainer>
                 </CalendarContainer>
                 <Chat>
-                    <ChatContainer type={type} year={selectYear} month={selectMonth} day={selectDay} workers={workers} eventList={eventList}>
+                    <ChatContainer type={type} year={selectYear} month={selectMonth} day={selectDay} workers={workers} events={events}>
                     </ChatContainer>
                 </Chat>
             </Bottom>

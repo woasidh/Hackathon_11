@@ -26,7 +26,7 @@ function Navbar() {
         return (
             <>
                 <a href="/"><span className="navbar__logo">알바꼼꼼</span></a>
-                <a href="/"><span>캘린더</span></a>
+                <a href="/#/main"><span>캘린더</span></a>
                 <a href="/"><span>매장 모니터링</span></a>
             </>
         );

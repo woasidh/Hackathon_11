@@ -230,13 +230,13 @@ button.rbc-input::-moz-focus-inner {
     box-sizing: border-box;
     box-shadow: none;
     margin: 0;
-    padding: 5px 8px;
+    padding: 3px 7px;
     background-color: #ccccff;
     border-radius: 5px;
     color: #fff;
     width: 100%;
     text-align: left;
-    font-size: 0.85em;
+    font-size: 0.7em;
 }
 .rbc-slot-selecting .rbc-event,
 .rbc-slot-selecting .rbc-day-slot .rbc-background-event,
@@ -341,10 +341,7 @@ button.rbc-input::-moz-focus-inner {
     text-align: left;
 }
 .rbc-date-cell.rbc-now {
-    background-image: url("../../img/underline.png");
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: left bottom;
+    color: red;
 }
 .rbc-date-cell > a,
 .rbc-date-cell > a:active,
@@ -687,5 +684,8 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-current {
-    color: red;
+    background-image: url("../../img/underline.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
 }

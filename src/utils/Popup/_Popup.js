@@ -7,6 +7,7 @@ import './_Popup.css'
 
 function _Popup() {
 
+
     const [opened, setopened] = useState(false);
     const token = useSelector(state => state.user.userinfo && state.user.userinfo.token);
 
@@ -104,6 +105,7 @@ function _Popup() {
         );
     }
 
+
     return (
         <div className="popupContainer">
             <div className="popup__title">근무자 프로필</div>
@@ -127,6 +129,7 @@ function _Popup() {
                 </ul>
             </div>
             <div className="popup__buttoncontainer">
+
                 <button onClick={() => {
                     setopened(true)
                 }} className="popup__alterBtn">급여 조정</button>
@@ -149,6 +152,9 @@ function _Popup() {
                         {getCode()}
                     </div>
                 </Popup>
+
+                <button className="popup__alterBtn">급여 정산</button>
+
             </div>
         </div>
     )
