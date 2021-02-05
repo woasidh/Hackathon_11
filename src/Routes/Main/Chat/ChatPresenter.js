@@ -217,7 +217,7 @@ export default ({ type, year, month, day, workers, events, onClickButton, substi
                                         <Img>{name[0]}</Img>
                                         <Name>{name}</Name>
                                         <Time>{time}</Time>
-                                        <RoundButton onClick={onClickButton} id="수락" style={{ background: "#50c878", marginLeft: "70px", borderRadius: "10px", width: "50px", height: "30px", lineHeight: "2.2" }}>수락</RoundButton>
+                                        <RoundButton onClick={onClickButton} id={"수락_" + employee_id} style={{ background: "#50c878", marginLeft: "70px", borderRadius: "10px", width: "50px", height: "30px", lineHeight: "2.2" }}>수락</RoundButton>
                                     </Substitute>
                                 ))}
                             </List>
