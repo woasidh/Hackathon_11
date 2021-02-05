@@ -9,13 +9,13 @@ export default () => {
 
     const today = new Date().toString().split(" ");
     const [type, setType] = useState("출근/퇴근");
-    const [workers, setworkers] = useState([{"name": "홍길동"}, {"name": "가나다"}]);
+    const [workers, setworkers] = useState([]);
     const [selectYear, setYear] = useState(parseInt(today[3]));
     const [selectMonth, setMonth] = useState(parseInt(month.indexOf(today[1])));
     const [selectDay, setDay] = useState(parseInt(today[2]));
     const [events, setEvents] = useState([]);
-
-
+    const token = useSelector(state => state.user.userinfo.token);
+    const userType = useSelector(state => state.user.userinfo.user_type);
 
     const payload = {
         token: token,
@@ -27,6 +27,7 @@ export default () => {
     // 해당 달에 있는 일정들 모두 가져오기
     useEffect(() => {
         getWorkDay()
+        if(userType === "employer") getWorkers()
     }, []);
 
     async function getWorkDay() {
@@ -52,20 +53,27 @@ export default () => {
         });
     }
 
-    // 해당 매장의 모든 직원 정보 가져오기
-    /*axios.get('https://alba-api.herokuapp.com/workplace/' + workplace_id, {
-        headers: {
-            Auth: token
-        }
-    }).then(response => {
-        console.log(response)
-        if(response.data.result === "Success") {
-            console.log(response);
-        } else {
-            console.log(response)
-            alert("다시 시도해 주세요.");
-        }
-    });*/
+    async function getWorkers() {
+        // 해당 매장의 모든 직원 정보 가져오기
+        await axios.get('https://alba-api.herokuapp.com/workplace/' + workplace_id, {
+            headers: {
+                Auth: token
+            }
+        }).then(response => {
+            if(response.data.result === "Success") {
+                setworkers(curr => {
+                    const tmp = [];
+                    response.data.data.map((element) => {
+                        tmp.push(element);
+                    });
+                    return tmp;
+                })
+            } else {
+                console.log(response)
+                alert("다시 시도해 주세요.");
+            }
+        });
+    }
 
     const onClickDate = async(date) => {
         const splited = date.toString().split(" ");
