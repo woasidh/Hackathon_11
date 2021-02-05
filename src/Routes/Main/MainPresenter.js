@@ -67,7 +67,7 @@ const Bottom = styled.div`
 `;
 
 const CalendarContainer = styled.div`
-    height: 450px;
+    height: 475px;
     width: 850px;
     position: relative;
 `;
