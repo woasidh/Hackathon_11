@@ -70,8 +70,8 @@ function Login(props) {
             <div className="login__content">
                 <div className="login__title">알바꼼꼼</div>
                 <div className="login__usrType">
-                    <button onClick={setYeeBtn} className='active' id="employee">고용주</button>
-                    <button onClick={setYerBtn} id="employer">직원</button>
+                    <button onClick={setYerBtn} className='active' id="employer">고용주</button>
+                    <button onClick={setYeeBtn} id="employee">직원</button>
                 </div>
                 <input type="text" id="id" name="id" placeholder="아이디" required></input>
                 <input type="password" id="pwd" name="pwd" placeholder="비밀번호" required></input>

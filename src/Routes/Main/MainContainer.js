@@ -12,7 +12,13 @@ export default () => {
     const [selectMonth, setMonth] = useState(parseInt(month.indexOf(today[1])));
     const [selectDay, setDay] = useState(parseInt(today[2]));
     const [events, setEvents] = useState([]);
-    const token = useSelector(state => state.user.userinfo.token);
+
+    const token = useSelector(state => state.user.userinfo && state.user.userinfo.token);
+    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    const today = new Date().toString().split(" ");
+
+
     const payload = {
         token: token,
         year: selectYear,

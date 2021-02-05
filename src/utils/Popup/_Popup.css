@@ -1,28 +1,52 @@
-.popupContainer{
-    padding : 1.5rem;
+.popupContainer {
+    padding: 1.5rem;
 }
 
-.popup__title{
+.payContainer {
+    padding: 1.5rem;
+    padding-bottom: 0;
+}
+
+.popup__title {
     font-size: 19px;
-    color : #F5D11F;
+    color: #F5D11F;
     font-weight: 600;
     margin-bottom: 2rem;
 }
 
-.popup__profile{
+.pay__title {
+    font-size: 19px;
+    color: #F5D11F;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.popup__profile {
     display: flex;
     justify-content: left
 }
 
-.popup__avatar{
-    width : 60px;
-    height: 60px;
-    border : 1px solid black;
-    border-radius: 50%;
-
+.pay__profile {
+    display: flex;
+    justify-content: left;
+    height: 80px;
 }
 
-.popup__name{
+.popup__avatar {
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.pay__avatar {
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.popup__name {
     text-align: left;
     line-height: 60px;
     margin-left: 1.7rem;
@@ -31,12 +55,26 @@
     margin-bottom: 2rem;
 }
 
-.popup__workInfo > span{
+.pay__name {
+    text-align: left;
+    line-height: 60px;
+    margin-left: 1.7rem;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 2rem;
+}
+
+.popup__workInfo>span {
     font-weight: bold;
     font-size: 16px;
 }
 
-.popup__workContainer{
+.pay__desc {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.popup__workContainer {
     margin-top: 0.5rem;
     padding: 1rem;
     background-color: #eeeeee;
@@ -44,21 +82,21 @@
     margin-bottom: 1.6rem;
 }
 
-.popup__workContainer > li{
+.popup__workContainer>li {
     margin-bottom: 0.3rem;
     font-size: 14px;
 }
 
-.popup__workContainer > li:last-child{
+.popup__workContainer>li:last-child {
     margin-bottom: 0;
 }
 
-.popup__payInfo > span{
+.popup__payInfo>span {
     font-weight: bold;
     font-size: 16px;
 }
 
-.popup__payContainer{
+.popup__payContainer {
     margin-top: 0.5rem;
     padding: 1rem;
     background-color: #eeeeee;
@@ -66,26 +104,119 @@
     margin-bottom: 1.6rem;
 }
 
-.popup__payContainer > li{
+.popup__payContainer>li {
     margin-bottom: 0.3rem;
     font-size: 14px;
 }
 
-.popup__payContainer > li:last-child{
+.popup__payContainer>li:last-child {
     margin-bottom: 0;
 }
 
-.popup__buttoncontainer{
-    width : 100%;
+.popup__buttoncontainer {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.popup__alterBtn{
+.popup__alterBtn {
     width: 130px;
     height: 40px;
     border-radius: 20px;
-    background-color : #F5D11F;
+    background-color: #F5D11F;
     font-weight: 900;
+}
+
+.pay_types {
+    width: 100%;
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.pay_types>button {
+    flex-basis: 50%;
+    height: 30px;
+    border: 1px solid #F5D11F;
+}
+
+.pay_types>button:nth-child(1) {
+    background-color: #F5D11F;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+}
+
+.pay_types>button:nth-child(2) {
+    background-color: white;
+    color: #F5D11F;
+    font-weight: bold;
+    border-top-right-radius: 10px;
+}
+
+.pay__contents {
+    width: 100%;
+    background-color: #eeeeee;
+    height: 160px;
+    padding: 0.5rem;
+    overflow-y: auto;
+    /* position: relative; */
+}
+
+/* .pay__rec1{
+    position : absolute;
+    border-right: 1px solid black;
+    left : 0;
+
+} */
+
+.pay__content {
+    display: flex;
+    text-align: center;
+    font-size: 14px;
+    height: 18px;
+    height :25px;
+}
+
+.pay__content__date {
+    font-weight: bold;
+    flex-basis: 18%;
+    border-right: 1px solid lightgray;
+}
+
+.pay__content__time {
+    flex-basis: 59%;
+    border-right: 1px solid lightgray;
+}
+
+.pay__content__cost {
+    flex-basis: 27%;
+}
+
+.pay__all__title {
+    margin: 0.5rem 0;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.pay__all__content{
+    background-color: #eeeeee;
+    padding : 1rem;
+    font-size: 13px;
+    border-radius: 10px;
+}
+
+.pay__all__org{
+    margin-bottom: 0.7rem;
+}
+
+.pay__incent{
+    position: relative;
+}
+
+.pay__all__total{
+    position: absolute;
+    right :0;
+    bottom :0;
+    font-weight: bold;
 }

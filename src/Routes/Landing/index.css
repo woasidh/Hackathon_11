@@ -71,6 +71,26 @@ nav {
 }
 
 .landing__left__circleCnt > div {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width : 75px;
+    height : 75px;
+    background-color: white;
+    border : 1px solid  #F5D11F;
+    margin : 1rem;
+    border-radius: 50%;
+}
+
+.landing__left__circleCnt > div:hover{
+    transition: all linear 100ms;
+    transform: scale(1.1);
+}
+
+.landing__left__circleCnt > div > i{
+    font-size: 38px;
+
     width: 75px;
     height: 75px;
     border: 1px solid black;
@@ -84,7 +104,9 @@ nav {
     border: 1px solid black;
     margin: 1rem;
     border-radius: 50%;
+
 }
+
 /* landing right */
 .landing__right {
     display: flex;
