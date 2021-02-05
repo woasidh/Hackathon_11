@@ -14,7 +14,7 @@ function index() {
                         알바꼼꼼
                     </div>
                     <div className="landing__left__desc">
-                        매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 매장 모니터링 
+                    직원/알바 급여 자동 정산 및 매장 일정 관리 플랫폼
                     </div>
                     <div className="landing__left__authBtn">
                     <a href = "/#/signup"className="landing__left__signupBtn">

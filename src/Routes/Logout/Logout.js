@@ -8,6 +8,7 @@ function Logout() {
 
     useEffect(() => {
         dispatch(logoutUser());
+        window.location.href="/#/"
     })
 
     return (

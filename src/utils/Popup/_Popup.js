@@ -20,14 +20,14 @@ function _Popup() {
                 </ul>
             </div>
             <div className="popup__payInfo">
-                <span>급여</span>d
+                <span>급여</span>
                 <ul className="popup__payContainer">
                     <li>시급 8750원</li>
                     <li>세금x</li>
                 </ul>
             </div>
             <div className="popup__buttoncontainer">
-                <button className="popup__alterBtn">급여 조정</button>
+                <button className="popup__alterBtn">급여 정산</button>
             </div>
         </div>
     )

@@ -43,6 +43,7 @@ nav{
 
 .landing__left__desc{
     margin-bottom: 2rem;
+    font-size: 17px;
 }
 
 .landing__left__authBtn{
@@ -102,4 +103,5 @@ nav{
 
 .landing__left__moreInfo{
     text-align: center;
+    line-height: 20px;
 }
