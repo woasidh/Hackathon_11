@@ -1,16 +1,13 @@
 import React from 'react'
-import styled from "styled-components";
 import './index.css'
 import LandingImg from '../../img/LandingImg.jpg'
 import LandingS1 from "../../img/LandingS1.png";
 import LandingS2 from "../../img/LandingS2.png";
 import LandingS3 from "../../img/LandingS3.png";
-import Navbar from '../../utils/Navbar/Navbar'
 
 function index() {
     return (
         <div>
-            <Navbar/>
             <div className="landing__content">
                 <div className="landing__left">
                     <div className="landing__left__title">
@@ -44,7 +41,6 @@ function index() {
                     </div>
                 </div>
                 <div className="landing__right">
-                    <img src= {LandingImg} alt="landingImg"/>
                 </div>
             </div>
         </div>

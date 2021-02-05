@@ -33,9 +33,9 @@ export default () => {
             if(response.data.result === "Success") {
                 setEvents(curr => {
                     const tmp = [];
-                    response.data.data.map(({date, employee_id, start_time, end_time}) => {
+                    response.data.data.map(({date, employee_id, name, start_time, end_time}) => {
                         tmp.push({
-                            title: employee_id,
+                            title: name,
                             allDay: false,
                             start: new Date(date.split("-")[0], date.split("-")[1] - 1, date.split("-")[2], start_time.split(":")[0], start_time.split(":")[1]),
                             end: new Date(date.split("-")[0], date.split("-")[1] - 1, date.split("-")[2], end_time.split(":")[0], end_time.split(":")[1])
@@ -85,5 +85,5 @@ export default () => {
         setType(value);
     };
 
-    return <MainPresenter type={type} selectYear={selectYear} selectMonth={selectMonth} selectDay={selectDay} workers={workers} events={events} onClickDate={onClickDate} onChangeSelect={onChangeSelect}/>;
+    return <MainPresenter type={type} selectYear={selectYear} selectMonth={selectMonth} selectDay={selectDay} workers={workers} userType={userType} events={events} onClickDate={onClickDate} onChangeSelect={onChangeSelect}/>;
 };

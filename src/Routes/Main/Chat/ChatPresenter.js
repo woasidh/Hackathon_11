@@ -185,10 +185,10 @@ export default ({ type, year, month, day, workers, events, onClickButton, substi
                     {type === "출근/퇴근" && (
                         <>
                             <Bottom>
-                                { events.map(({ name, time, isChecked }) => (
+                                { events.map(({ name, realName, time, isChecked }) => (
                                     <Worker>
-                                        <Img>{name[0]}</Img>
-                                        <Name>{name}</Name>
+                                        <Img>{realName[0]}</Img>
+                                        <Name>{realName}</Name>
                                         <Time>{time}</Time>
                                         {isChecked === 0 && (
                                             <IsChecked style={{color: "lightGray"}}>출근 예정</IsChecked>
@@ -212,13 +212,27 @@ export default ({ type, year, month, day, workers, events, onClickButton, substi
                         <>
                         <Bottom>
                             <List>
-                                {substitute.map(({employee_id, name, time, workplace_id}) => (
-                                    <Substitute>
-                                        <Img>{name[0]}</Img>
-                                        <Name>{name}</Name>
-                                        <Time>{time}</Time>
-                                        <RoundButton onClick={onClickButton} id={"수락_" + employee_id} style={{ background: "#50c878", marginLeft: "70px", borderRadius: "10px", width: "50px", height: "30px", lineHeight: "2.2" }}>수락</RoundButton>
-                                    </Substitute>
+                                {substitute.map(({employee_id, name, time, workplace_id, id, is_checked}) => (
+                                    <>
+                                    {is_checked === 1 && (
+                                        <Substitute style={{display: "flex", justifyContent:"space-between"}}>
+                                            <div style={{display: "flex", alignItems: "center"}}>
+                                                <Img>{name[0]}</Img>
+                                                <Name>{name}</Name>
+                                                <Time>{time}</Time>
+                                            </div>
+                                            <div style={{color: "#aaa", fontSize: "0.85em"}}>변경 완료</div>
+                                        </Substitute>
+                                    )}
+                                    {is_checked === 0 && (
+                                        <Substitute>
+                                            <Img>{name[0]}</Img>
+                                            <Name>{name}</Name>
+                                            <Time>{time}</Time>
+                                            <RoundButton onClick={onClickButton} id={"수락_" + id} style={{ background: "#50c878", marginLeft: "70px", borderRadius: "10px", width: "50px", height: "30px", lineHeight: "2.2" }}>수락</RoundButton>
+                                        </Substitute>
+                                    )}
+                                    </>
                                 ))}
                             </List>
                         </Bottom>
