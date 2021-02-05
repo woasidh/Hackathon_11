@@ -125,11 +125,10 @@ export default ({ type, selectYear, selectMonth, selectDay, workers, events, onC
                                 overlayStyle={{background: "rgba(0, 0, 0, 0.5)"}}
                                 contentStyle={{ background: "white", width: "400px", height: "500px", border: "1px solid #ddd", padding: "10px 20px", borderRadius: "10px" }}
                             >
-                                <_Popup/>
                                 {close => (
                                     <>
                                         <X onClick={close}>&times; </X>
-                                        <div style={{background: "white"}}></div>
+                                        <_Popup/>
                                     </>
                                 )}
                             </Popup>
