@@ -1,65 +1,69 @@
 @font-face {
-    font-family: 'CookieRun-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-family: "CookieRun-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
-button{
+button {
     outline: none;
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-nav{
-    background-color: #F5D11F;
-    width : 100%;
+nav {
+    background-color: #f5d11f;
+    width: 100%;
     height: 80px;
 }
 
-.landing__content{
+.landing__content {
     overflow: hidden;
     display: flex;
     max-width: 1200px;
-    margin :auto;
+    margin: auto;
     margin-top: 80px;
-    height : 900px
+    height: 100vh;
+    margin: 0;
+    padding: 100px 240px 0px 240px;
 }
 
 /* landingleft */
-.landing__left{
+.landing__left {
     flex-basis: 45%;
-    padding : 3rem;
+    padding: 3.2rem;
     padding-top: 4rem;
 }
 
-.landing__left__title{
-    font-family: 'CookieRun-Regular';
+.landing__left__title {
+    font-family: "CookieRun-Regular";
     font-size: 65px;
-    color : #F5D11F;
+    color: #f5d11f;
     margin-bottom: 2rem;
 }
 
-.landing__left__desc{
-    margin-bottom: 2rem;
-    font-size: 17px;
+.landing__left__desc {
+    margin-bottom: 1rem;
+    font-size: 15px;
+    line-height: 25px;
+    color: gray;
 }
 
-.landing__left__authBtn{
+.landing__left__authBtn {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.landing__left__authBtn > a{
-    width : 180px;
+.landing__left__authBtn > a {
+    width: 170px;
     height: 40px;
-    border-radius: 30px;
+    border-radius: 20px;
     margin-bottom: 2rem;
 }
 
-.landing__left__circleCnt{
+.landing__left__circleCnt {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
@@ -67,41 +71,56 @@ nav{
 }
 
 .landing__left__circleCnt > div {
-    width : 75px;
-    height : 75px;
-    border : 1px solid black;
-    margin : 1rem;
+    width: 75px;
+    height: 75px;
+    border: 1px solid black;
+    margin: 1rem;
     border-radius: 50%;
 }
 
 .landing__left__circleCnt > div:nth-child(2) {
-    width : 100px;
-    height : 100px;
-    border : 1px solid black;
-    margin : 1rem;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    margin: 1rem;
     border-radius: 50%;
 }
 /* landing right */
-.landing__right{
-    flex-basis: 50%;
+.landing__right {
+    display: flex;
 }
 
-.landing__left__signupBtn{
-    background-color: #F5D11F;
-    outline: none;
-    border : none;
-    text-align: center;
-    line-height : 40px;
-}
-
-.landing__left__loginBtn{
-    border : 1px solid #F5D11F;
-    text-align: center;
-    line-height : 40px;
-    color : gray;
-}
-
-.landing__left__moreInfo{
+.landing__left__signupBtn {
+    background-color: #f5d11f;
+    border: none;
     text-align: center;
     line-height: 20px;
+    padding: 10px;
+    margin-right: 5px;
+    font-size: 0.85em;
+}
+
+.landing__left__loginBtn {
+    background-color: #f5d11f;
+    border: none;
+    text-align: center;
+    line-height: 20px;
+    padding: 10px;
+    margin-left: 5px;
+    font-size: 0.85em;
+}
+
+.landing__left__signupBtn:hover,
+.landing__left__loginBtn:hover {
+    color: white;
+    transition: 0.2s;
+}
+
+.landing__left__moreInfo {
+    text-align: center;
+    line-height: 20px;
+}
+
+.landing__right img {
+    height: 610px;
 }
