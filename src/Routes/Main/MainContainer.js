@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 export default () => {
     const token = useSelector(state => state.user.userinfo && state.user.userinfo.token);
-    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const month = ["","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     const today = new Date().toString().split(" ");
     const [type, setType] = useState("출근/퇴근");
@@ -14,7 +14,6 @@ export default () => {
     const [selectMonth, setMonth] = useState(parseInt(month.indexOf(today[1])));
     const [selectDay, setDay] = useState(parseInt(today[2]));
     const [events, setEvents] = useState([]);
-    const token = useSelector(state => state.user.userinfo.token);
     const userType = useSelector(state => state.user.userinfo.user_type);
 
     const payload = {
@@ -53,8 +52,8 @@ export default () => {
         });
     }
 
+    // 해당 매장의 모든 직원 정보 가져오기
     async function getWorkers() {
-        // 해당 매장의 모든 직원 정보 가져오기
         await axios.get('https://alba-api.herokuapp.com/workplace/' + workplace_id, {
             headers: {
                 Auth: token

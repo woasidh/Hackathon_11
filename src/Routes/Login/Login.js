@@ -10,7 +10,7 @@ function Login(props) {
 
     const dispatch = useDispatch();
 
-    const [usrType, setusrType] = useState('employee');
+    const [usrType, setusrType] = useState('employer');
 
     function setYeeBtn() {
         const employer = document.querySelector('button#employer');
