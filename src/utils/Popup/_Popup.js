@@ -86,7 +86,6 @@ function _Popup(props) {
             const start = data.start_time;
             const startArr = start.split(':');
             const plusHour = endArr[0] - startArr[0];
-            console.log(plusHour);
             hour = hour + plusHour
         })
         return (
@@ -157,6 +156,32 @@ function _Popup(props) {
         }
     }
 
+    const getSchedule = () => {
+        if (props.workerId.employee_id == 'test1') {
+            return (
+                <>
+                    <li>- 월 오전근무 09:00 ~ 13:00</li>
+                    <li>- 수 오전근무 09:00 ~ 13:00</li>
+                    <li>- 금 오전근무 09:00 ~ 13:00</li>
+                </>
+            );
+        } else if (props.workerId.employee_id == 'test2') {
+            return (
+                <>
+                    <li>- 화 오전근무 09:00 ~ 13:00</li>
+                    <li>- 목 오전근무 09:00 ~ 13:00</li>
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <li>- 토 오전근무 09:00 ~ 13:00</li>
+                    <li>- 일 오전근무 09:00 ~ 13:00</li>
+                </>
+            );
+        }
+    }
+
 
 
     return (
@@ -168,9 +193,7 @@ function _Popup(props) {
             <div className="popup__workInfo">
                 <span>근무일/시간</span>
                 <ul className="popup__workContainer">
-                    <li>- 월 오전근무 09:00 ~ 13:00</li>
-                    <li>- 월 오전근무 09:00 ~ 13:00</li>
-                    <li>- 월 오전근무 09:00 ~ 13:00</li>
+                    {getSchedule()}
                 </ul>
             </div>
             <div className="popup__payInfo">
