@@ -51,9 +51,11 @@ function Login(props) {
                 if (response.data.result === 'Success') {
                     const userData = {
                         "user_id": id,
-                        "user_type": usrType
+                        "user_type": usrType,
+                        "token": response.data.token
                     }
-                    dispatch(loginUser(userData))
+                    dispatch(loginUser(userData))/* 
+                    axios.get("https://alba-api.herokuapp.com/workspace/") */
                     window.location.href = "/#";
                 } else {
                     alert('아이디와 비밀번호를 확인해주세요!');

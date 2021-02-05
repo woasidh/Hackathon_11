@@ -4,6 +4,8 @@ import Navbar from '../../utils/Navbar/Navbar'
 import axios from 'axios';
 
 function Signup(props) {
+
+
     const [usrType, setusrType] = useState('employer');
 
     function employeeBtn() {
