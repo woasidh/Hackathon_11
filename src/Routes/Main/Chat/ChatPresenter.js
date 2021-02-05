@@ -223,7 +223,7 @@ export default ({ type, year, month, day, workers, events, onClickButton, substi
                             </List>
                         </Bottom>
                         <ButtonContainer>
-                            <RoundButton onClick={onClickButton} id="대타" style={{ background: "#F5D11F", boxShadow: "2px 2px 2px #aaa" }}>신청</RoundButton>
+                            <RoundButton onClick={onClickButton} id="신청" style={{ background: "#F5D11F", boxShadow: "2px 2px 2px #aaa" }}>신청</RoundButton>
                         </ButtonContainer>
                         </>
                     )}
