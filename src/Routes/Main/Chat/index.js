@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 export default ({ type, year, month, day, workers }) => {
     const [events, setEvents] = useState([]);
+    const [works, setWorks] = useState([]);
     const [substitute, setSubstitute] = useState([]);
     const token = useSelector(state => state.user.userinfo.token);
     const userType = useSelector(state => state.user.userinfo.user_type);
@@ -58,6 +59,26 @@ export default ({ type, year, month, day, workers }) => {
                 console.log(response)
                 alert("다시 시도해 주세요.");
         }})
+        //특정일에 스케줄 목록 받아오기
+        axios.post('https://alba-api.herokuapp.com/calendar/' + workplace_id, payload).then(response => {
+            if(response.data.result === "Success") {
+                setWorks(curr => {
+                    const tmp = [];
+                    response.data.data.map(({employee_id, id, start_time, end_time}) => {
+                        tmp.push({
+                            employee_id: employee_id,
+                            id: id,
+                            start_time: start_time,
+                            end_time: end_time
+                        });
+                    });
+                    return tmp;
+                });
+            } else {
+                console.log(response)
+                alert("다시 시도해주세요");
+            }
+        });
     }, [type, month, day]);
 
     // 출퇴근 버튼 누르면 출퇴근 처리
@@ -104,8 +125,29 @@ export default ({ type, year, month, day, workers }) => {
         })} else if(id === "수락") {
 
         } else if(id === "신청") {
-
-        }
+            const work = works.filter(element => element.employee_id === userId)[0]
+            const payload = {
+                token: token,
+                workplace_schedule_id: work.id
+            }
+            axios.post('https://alba-api.herokuapp.com/substitute/' + workplace_id +'/add', payload ).then(response =>{
+                if(response.data.result == "success"){
+                    console.log(response)
+                    setSubstitute(curr => {
+                        const tmp = curr.concat({
+                            employee_id: work.employee_id,
+                            name: work.employee_id,
+                            time: work.start_time.split(":")[0] + ":" + work.start_time.split(":")[1] + " ~ " + work.end_time.split(":")[0] + ":" + work.end_time.split(":")[1],
+                            workplace_id: workplace_id
+                        });
+                        console.log(tmp);
+                        return tmp;
+                    });
+                }else{
+                    console.log(response)
+                    alert("다시 시도해 주세요.");
+            }
+        })}
     }
     return <ChatPresenter type={type} year={year} month={month} day={day} workers={workers} events={events} userType={userType} onClickButton={onClickButton} substitute={substitute} />
 }

@@ -130,6 +130,7 @@ export default ({ type, selectYear, selectMonth, selectDay, workers, events, onC
                                     <>
                                         <X onClick={close}>&times; </X>
                                         <_Popup workerId = {worker/* .employee_id */} />
+
                                     </>
                                 )}
                             </Popup>
