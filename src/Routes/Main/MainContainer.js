@@ -4,8 +4,10 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 export default () => {
+    const token = useSelector(state => state.user.userinfo && state.user.userinfo.token);
+    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
     const today = new Date().toString().split(" ");
-    const month = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const [type, setType] = useState("출근/퇴근");
     const [workers, setworkers] = useState([]);
     const [selectYear, setYear] = useState(parseInt(today[3]));
@@ -14,6 +16,7 @@ export default () => {
     const [events, setEvents] = useState([]);
     const token = useSelector(state => state.user.userinfo.token);
     const userType = useSelector(state => state.user.userinfo.user_type);
+
     const payload = {
         token: token,
         year: selectYear,

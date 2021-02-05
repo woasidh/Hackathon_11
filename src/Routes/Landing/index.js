@@ -26,10 +26,13 @@ function index() {
                     </div>
                     <div className="landing__left__circleCnt">
                         <div className="landing__left__c1">
+                            <i class="fab fa-instagram"></i>
                         </div>
                         <div className="landing__left__c2">
+                        <i class="fab fa-youtube"></i>
                         </div>
                         <div className="landing__left__c3">
+                        <i class="fab fa-facebook-square"></i>
                         </div>
                     </div>
                     <div className="landing__left__moreInfo">
