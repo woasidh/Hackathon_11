@@ -29,11 +29,10 @@ const Worker = styled.div`
 
 const Img = styled.div`
     background: #F5D11F;
-    border-radius: 50px;
+    border-radius: 70px;
     width: 50px;
     height: 50px;
     margin-right: 10px;
-    cursor: pointer;
     text-align: center;
     line-height: 3;
     color: white;
@@ -100,11 +99,19 @@ const Text = styled.div`
 
 const Person = styled.div``;
 
-const Substitute = styled.div``;
-const List = styled.div``;
+const Substitute = styled.div`
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 5px 10px 5px;
+`;
+
+const List = styled.div`
+
+`;
 
 
-export default ({ type, year, month, day, workers, events, onClickButton }) => {
+export default ({ type, year, month, day, workers, events, onClickButton, substitute }) => {
 
     const [counter, setcounter] = useState(0);
 
@@ -196,8 +203,8 @@ export default ({ type, year, month, day, workers, events, onClickButton }) => {
                                 ))}
                             </Bottom>
                             <ButtonContainer>
-                                <RoundButton onClick={onClickButton} id="출근" style={{ background: "#e26262" }}>출근</RoundButton>
-                                <RoundButton onClick={onClickButton} id="퇴근" style={{ background: "#50c878" }}>퇴근</RoundButton>
+                                <RoundButton onClick={onClickButton} id="출근" style={{ background: "#e26262", boxShadow: "2px 2px 2px #aaa" }}>출근</RoundButton>
+                                <RoundButton onClick={onClickButton} id="퇴근" style={{ background: "#50c878", boxShadow: "2px 2px 2px #aaa" }}>퇴근</RoundButton>
                             </ButtonContainer>
                         </>
                     )}
@@ -205,16 +212,18 @@ export default ({ type, year, month, day, workers, events, onClickButton }) => {
                         <>
                         <Bottom>
                             <List>
-                                <Substitute>
-                                    <Img>홍</Img>
-                                    <Name>홍길동</Name>
-                                    <Time>12:00-2:00</Time>
-                                    <RoundButton onClick={onClickButton} id="수락" style={{ background: "#50c878" }}>수락</RoundButton>
-                                </Substitute>
+                                {substitute.map(({employee_id, name, time, workplace_id}) => (
+                                    <Substitute>
+                                        <Img>{name[0]}</Img>
+                                        <Name>{name}</Name>
+                                        <Time>{time}</Time>
+                                        <RoundButton onClick={onClickButton} id="수락" style={{ background: "#50c878", marginLeft: "70px", borderRadius: "10px", width: "50px", height: "30px", lineHeight: "2.2" }}>수락</RoundButton>
+                                    </Substitute>
+                                ))}
                             </List>
                         </Bottom>
                         <ButtonContainer>
-                            <RoundButton onClick={onClickButton} id="대타" style={{ background: "#F5D11F" }}>신청</RoundButton>
+                            <RoundButton onClick={onClickButton} id="대타" style={{ background: "#F5D11F", boxShadow: "2px 2px 2px #aaa" }}>신청</RoundButton>
                         </ButtonContainer>
                         </>
                     )}
