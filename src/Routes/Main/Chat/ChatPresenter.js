@@ -95,7 +95,7 @@ const Text = styled.div`
 const List = styled.div``;
 const Person = styled.div``;
 
-export default ({type, year, month, day, workers, eventList}) => (
+export default ({type, year, month, day, workers, events, userType}) => (
     <>
     {year === "" && (
         <div style={{fontSize: "1.2em", color:"#aaaaaa", paddingTop: "30px", textAlign:"center"}}>날짜를 선택해 주세요.</div>
@@ -108,18 +108,20 @@ export default ({type, year, month, day, workers, eventList}) => (
             {type === "출근/퇴근" && (
                 <>
                 <Bottom>
-                    {workers.map(({ name }) => (
+                    {events.map(({ title, start, end }) => (
                         <Worker>
-                            <Img>{name[0]}</Img>
-                            <Name>{name}</Name>
+                            <Img>{title[0]}</Img>
+                            <Name>{title}</Name>
                             <IsChecked>출근</IsChecked>
                         </Worker>
                     ))}
                 </Bottom>
-                <ButtonContainer>
-                    <RoundButton style={{background: "#e26262"}}>출근</RoundButton>
-                    <RoundButton style={{background: "#50c878"}}>퇴근</RoundButton>
-                </ButtonContainer>
+                {userType === "employer" && (
+                    <ButtonContainer>
+                        <RoundButton style={{background: "#e26262"}}>출근</RoundButton>
+                        <RoundButton style={{background: "#50c878"}}>퇴근</RoundButton>
+                    </ButtonContainer>
+                )}
                 </>
             )}
             {type === "대타" && (
