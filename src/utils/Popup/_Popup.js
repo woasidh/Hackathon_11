@@ -4,6 +4,8 @@ import 'reactjs-popup/dist/index.css';
 import './_Popup.css'
 
 function _Popup() {
+
+
     return (
         <div className="popupContainer">
             <div className="popup__title">근무자 프로필</div>
