@@ -35,10 +35,36 @@ a {
     margin: 0 1rem;
 }
 
+.logoutBtn{
+    height : 80px;
+}
+
+.logoutBtn > a {
+    height : 80px;
+}
+
+.logoutBtn{
+    box-sizing: border-box;
+    padding : 0;
+    font-size: 15px;
+}
+
+.logoutBtn:hover{
+    border-bottom: 4px solid #f5d11f;
+}
+
+.navbar__cnt > div > a > span{
+    box-sizing: border-box;
+}
+
 .navbar__cnt > div > a > span:hover {
     border-bottom: 4px solid #f5d11f;
 }
 
+/* .navbar__cnt > div > button >a > span:hover {
+    border-bottom: 4px solid #f5d11f;
+}
+ */
 .navbar__left > a:nth-child(1) > span {
     font-size: 25px;
     color: #f5d11f;

@@ -44,7 +44,7 @@ function Navbar() {
     function AuthRight() {
         return (
             <>
-                <a href="/mynews"><span>새소식</span></a>
+                {/* <button className = "logoutBtn"> */}<a href="/logout"><span>로그아웃</span></a>{/* </button> */}
                 <a href="/mypage"><span>내정보</span></a>
             </>
         );
