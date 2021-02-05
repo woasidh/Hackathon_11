@@ -105,8 +105,8 @@ function Signup(props) {
                 <input type="password" id="pwdRe" name="pwdRe" placeholder="비밀번호 재확인" required></input>
                 <input type="text" id="name" name="name" placeholder="이름" required></input>
                 <div className="signup__usrTypeCnt">
-                    <button onClick={employeeBtn} className="signup__usrType active" id="employee">고용주</button>
-                    <button onClick={employerBtn} className="signup__usrType" id="employer">직원</button>
+                    <button onClick={employerBtn} className="signup__usrType active" id="employer">고용주</button>
+                    <button onClick={employeeBtn} className="signup__usrType" id="employee">직원</button>
                 </div>
                 <button onClick={onSgnBtn} className="signupBtn">가입하기</button>
             </div>
