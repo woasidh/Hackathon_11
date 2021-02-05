@@ -1,35 +1,35 @@
 .signup__content{
     margin : auto;
     margin-top: 80px;
-    width : 406px;
+    width : 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .signup__title{
-    margin-top: 5rem;
+    margin-top: 3rem;
     color : #F5D11F;
     font-family: 'CookieRunOTF-Bold';
-    font-size: 42px;
+    font-size: 30px;
 }
 
 .signup__desc{
-    margin-top: 44px;
+    margin-top: 33px;
     margin-right: auto;
     font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 28px;
+    font-size: 15px;
+    margin-bottom: 21px;
 }
 
 .signup__content > input{
     width: 100%;
     margin : 13px 0;
     margin-right: auto;
-    height: 62px;
+    height: 40px;
     border : 1px solid gray;
     border-radius: 10px;
-    font-size: 17px;
+    font-size: 12px;
     padding-left: 1rem;
 }
 
@@ -41,11 +41,11 @@
 
 .signup__idCtn > button{
     position: absolute;
-    bottom : 20px;
+    bottom : 14px;
     right :-120px;
     border : 1px solid black;
     width : 100px;
-    height : 50px;
+    height: 40px;
     border-radius: 10px;
     background-color: lightgray;
     color : black;
@@ -56,22 +56,23 @@
     width: 100%;
     margin : 13px 0;
     margin-right: auto;
-    height: 62px;
+    height: 40px;
     border : 1px solid gray;
     border-radius: 10px;
-    font-size: 17px;
+    font-size: 12px;
     padding-left: 1rem;
 }
 
 .signupBtn{
     margin-top: 1rem;
     width : 126px;
-    height : 62px;
+    height : 45px;
     border-radius: 10px;
     background-color:  #F5D11F;
     color : white;
-    font-size: 17px;
+    font-size: 13px;
     font-weight: bold;
+    margin-bottom: 2rem;
 }
 
 .signup__usrTypeCnt{
@@ -84,11 +85,11 @@
 .signup__usrType{
     margin : 1rem 1rem;
     width : 126px;
-    height : 62px;
+    height : 45px;
     border-radius: 10px;
     background-color:  lightgray;
     color : black;
-    font-size: 17px;
+    font-size: 13px;
     font-weight: bold;
     width : 40%;
 }

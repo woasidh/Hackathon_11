@@ -3,8 +3,7 @@ import './Signup.css'
 import Navbar from '../../utils/Navbar/Navbar'
 import axios from 'axios';
 
-function Signup() {
-
+function Signup(props) {
     const [usrType, setusrType] = useState('employer');
 
     function employeeBtn() {
@@ -24,7 +23,7 @@ function Signup() {
     }
 
     //submit to Server
-    function onSgnBtn(props) {
+    function onSgnBtn() {
         const id = document.querySelector('input#id').value;
         const pwd = document.querySelector('input#pwd').value;
         const pwdRe = document.querySelector('input#pwdRe').value;
@@ -44,12 +43,19 @@ function Signup() {
                     "user_name": name,
                     "user_type": usrType
                 }
+                console.log(payload);
                 axios.post('https://alba-api.herokuapp.com/register', payload).then(
-                    response =>{
-                        if(response.request.status==200){
-                            console.log('success');
-                        }else{
-                            console.log('fail');
+                    response => {
+                        if (response.request.status == 200) {
+                            if (response.data.result === 'success') {
+                                alert('회원가입에 성공하였습니다!');
+                                props.history.push("/");
+                            } else {
+                                alert('회원가입에 실패하였습니다!');
+                                console.log('failed');
+                            }
+                        } else {
+                            alert('중복확인을 해주세요!');
                         }
                     }
                 )
@@ -57,21 +63,28 @@ function Signup() {
         }
     }
 
-    function checkIdBtn(){
+    function checkIdBtn() {
         const id = document.querySelector('input#id').value;
-        if(!id){
+        if (!id) {
             alert('아이디를 입력해주세요!');
-        }else{
+        } else {
 
             const data = {
-                "user_id": id
-              }
-            axios.post('https://alba-api.herokuapp.com/register/check', data).then(response =>{
-                if(response.request.status ==200){
-                    alert('사용가능한 아이디입니다!')
-                }else{
-                    alert('중복된 아이디입니다!');
+                "user_id": id,
+                "user_type": usrType
+            }
+            console.log(data);
+            axios.post('https://alba-api.herokuapp.com/register/check', data).then(response => {
+                if (response.request.status == 200) {
+                    if (response.data.result === 'yes') {
+                        alert('사용가능한 아이디입니다!');
+                    } else {
+                        alert('사용불가능한 아이디입니다!');
+                    }
+                } else {
+                    alert('오류가 발생하였습니다');
                 }
+                console.log(response.data.result);
             })
         }
     }
@@ -83,11 +96,11 @@ function Signup() {
                 <div className="signup__title">알바꼼꼼</div>
                 <div className="signup__desc">필수 정보를 입력해주세요</div>
                 <div className="signup__idCtn">
-                <input type="text" id="id" name="id" placeholder="아이디" required></input>
-                <button onClick= {checkIdBtn}>중복확인</button>
+                    <input type="text" id="id" name="id" placeholder="아이디" required></input>
+                    <button onClick={checkIdBtn}>중복확인</button>
                 </div>
-                <input type="text" id="pwd" name="pwd" placeholder="비밀번호" required></input>
-                <input type="text" id="pwdRe" name="pwdRe" placeholder="비밀번호 재확인" required></input>
+                <input type="password" id="pwd" name="pwd" placeholder="비밀번호" required></input>
+                <input type="password" id="pwdRe" name="pwdRe" placeholder="비밀번호 재확인" required></input>
                 <input type="text" id="name" name="name" placeholder="이름" required></input>
                 <div className="signup__usrTypeCnt">
                     <button onClick={employeeBtn} className="signup__usrType active" id="employee">고용주</button>

@@ -6,6 +6,7 @@ import "./BigCalendar.css";
 import Navbar from "../../utils/Navbar/Navbar.js";
 import Popup from "reactjs-popup";
 import ChatContainer from "./Chat";
+import _Popup from '../../utils/Popup/_Popup'
 
 const Wrapper = styled.div`
     height: 100vh;
@@ -124,6 +125,7 @@ export default ({ type, selectYear, selectMonth, selectDay, workers, eventList, 
                                 overlayStyle={{background: "rgba(0, 0, 0, 0.5)"}}
                                 contentStyle={{ background: "white", width: "800px", height: "450px", border: "1px solid #ddd", padding: "10px 20px", borderRadius: "10px" }}
                             >
+                                <_Popup/>
                                 {close => (
                                     <>
                                         <X onClick={close}>&times; </X>

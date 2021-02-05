@@ -1,0 +1,91 @@
+.popupContainer{
+    padding : 1.5rem;
+}
+
+.popup__title{
+    font-size: 19px;
+    color : #F5D11F;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.popup__profile{
+    display: flex;
+    justify-content: left
+}
+
+.popup__avatar{
+    width : 60px;
+    height: 60px;
+    border : 1px solid black;
+    border-radius: 50%;
+
+}
+
+.popup__name{
+    text-align: left;
+    line-height: 60px;
+    margin-left: 1.7rem;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 2rem;
+}
+
+.popup__workInfo > span{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.popup__workContainer{
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background-color: #eeeeee;
+    border-radius: 7px;
+    margin-bottom: 1.6rem;
+}
+
+.popup__workContainer > li{
+    margin-bottom: 0.3rem;
+    font-size: 14px;
+}
+
+.popup__workContainer > li:last-child{
+    margin-bottom: 0;
+}
+
+.popup__payInfo > span{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.popup__payContainer{
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background-color: #eeeeee;
+    border-radius: 7px;
+    margin-bottom: 1.6rem;
+}
+
+.popup__payContainer > li{
+    margin-bottom: 0.3rem;
+    font-size: 14px;
+}
+
+.popup__payContainer > li:last-child{
+    margin-bottom: 0;
+}
+
+.popup__buttoncontainer{
+    width : 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup__alterBtn{
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    background-color : #F5D11F;
+    font-weight: 900;
+}
