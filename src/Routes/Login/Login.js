@@ -56,7 +56,7 @@ function Login(props) {
                     }
                     dispatch(loginUser(userData))/* 
                     axios.get("https://alba-api.herokuapp.com/workspace/") */
-                    window.location.href = "/#";
+                    window.location.href = "/#/main";
                 } else {
                     alert('아이디와 비밀번호를 확인해주세요!');
                 }
