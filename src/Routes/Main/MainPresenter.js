@@ -122,7 +122,7 @@ export default ({ type, selectYear, selectMonth, selectDay, workers, eventList, 
                             <Popup
                                 trigger={<Worker>{worker.name[0]}</Worker>}
                                 modal
-                                contentStyle={{ background: "white", width: "800px", height: "450px", border: "1px solid #ddd", padding: "10px 20px", borderRadius: "10px" }}
+                                contentStyle={{ background: "white", width: "400px", height: "500px", border: "1px solid #ddd", padding: "10px 20px", borderRadius: "10px" }}
                             >
                                 <_Popup/>
                                 {close => (
