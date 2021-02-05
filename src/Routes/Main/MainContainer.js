@@ -81,9 +81,9 @@ export default ({ user }) => {
 
     const onClickDate = async(date) => {
         const splited = date.toString().split(" ");
-        setYear(parseInt(splited[2]));
+        setYear(parseInt(splited[3]));
         setMonth(month.indexOf(splited[1]) + 1);
-        setDay(parseInt(splited[3]));
+        setDay(parseInt(splited[2]));
     };
 
     const onChangeSelect = e => {
