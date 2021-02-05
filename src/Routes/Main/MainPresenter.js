@@ -105,7 +105,7 @@ const Option = styled.option``;
 const calendarStyle = {};
 
 
-export default ({ type, selectYear, selectMonth, selectDay, workers, events, onClickDate, onChangeSelect }) => {
+export default ({ type, selectYear, selectMonth, selectDay, workers, events, userType, onClickDate, onChangeSelect }) => {
     const localizer = momentLocalizer(moment);
 
     return (
@@ -118,6 +118,7 @@ export default ({ type, selectYear, selectMonth, selectDay, workers, events, onC
                 </Info>
                 <WorkerList>
                     <Text style={{lineHeight: "2.7"}}>근무자 목록</Text>
+                    {userType === "employee" && <Text style={{lineHeight: "2.7"}}>(고용자만 조회할 수 있습니다.)</Text>}
                     <List>
                         {workers.map(worker => (
                             <Popup

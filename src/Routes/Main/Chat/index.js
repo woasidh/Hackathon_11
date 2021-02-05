@@ -25,9 +25,10 @@ export default ({ type, year, month, day, workers }) => {
             if(response.data.result == "Success"){
                 setEvents(curr => {
                     const tmp = [];
-                    response.data.data.map(({employee_id, start_time, end_time, is_checked}) => {
+                    response.data.data.map(({employee_id, start_time, name, end_time, is_checked}) => {
                         tmp.push({
                             name: employee_id,
+                            realName: name,
                             time: start_time.split(":")[0] + ":" + start_time.split(":")[1] + " ~ " + end_time.split(":")[0] + ":" + end_time.split(":")[1],
                             isChecked: is_checked
                         });
@@ -44,12 +45,14 @@ export default ({ type, year, month, day, workers }) => {
             if(response.data.result == "Success"){
                 setSubstitute(curr => {
                     const tmp = [];
-                    response.data.data.map(({employee_id, start_time, end_time, name, workplace_id}) => {
+                    response.data.data.map(({employee_id, start_time, end_time, id, name, workplace_id, is_checked}) => {
                         tmp.push({
+                            id: id,
                             employee_id: employee_id,
                             name: name,
                             time: start_time.split(":")[0] + ":" + start_time.split(":")[1] + " ~ " + end_time.split(":")[0] + ":" + end_time.split(":")[1],
-                            workplace_id: workplace_id
+                            workplace_id: workplace_id,
+                            is_checked: is_checked
                         });
                     });
                     return tmp;
@@ -63,9 +66,10 @@ export default ({ type, year, month, day, workers }) => {
             if(response.data.result === "Success") {
                 setWorks(curr => {
                     const tmp = [];
-                    response.data.data.map(({employee_id, id, start_time, end_time}) => {
+                    response.data.data.map(({employee_id, id, name, start_time, end_time}) => {
                         tmp.push({
                             employee_id: employee_id,
+                            name: name,
                             id: id,
                             start_time: start_time,
                             end_time: end_time
@@ -93,6 +97,7 @@ export default ({ type, year, month, day, workers }) => {
                         if(element.name === userId) {
                             return {
                                 name: element.name,
+                                realName: element.realName,
                                 time: element.time,
                                 isChecked: 1
                             }
@@ -111,6 +116,7 @@ export default ({ type, year, month, day, workers }) => {
                             if(element.name === userId) {
                                 return {
                                     name: element.name,
+                                    realname: element.realName,
                                     time: element.time,
                                     isChecked: 2
                                 }
@@ -124,17 +130,29 @@ export default ({ type, year, month, day, workers }) => {
             }
         })} else if(id.split("_")[0] === "수락") {
             const employee_id = id.split("_")[1];
-            const work = works.filter(element => element.employee_id === employee_id)[0];
             const payload = {
                 token: token,
-                sub_wanted_id: work.id
+                sub_wanted_id: employee_id
             }
             axios.patch('https://alba-api.herokuapp.com/substitute/' + workplace_id +'/change', payload ).then(response =>{
                 if(response.data.result == "Success") {
                     console.log(response)
+                    alert("수락되었습니다")
                     setSubstitute(curr => {
-                        const tmp = curr.filter(element => element.employee_id !== employee_id);
-                        console.log(tmp);
+                        const tmp = curr.map(element => {
+                            if(element.id === employee_id) {
+                                return {
+                                    id: element.id,
+                                    employee_id: element.employee_id,
+                                    name: element.name,
+                                    time: element.time,
+                                    workplace_id: element.workplace_id,
+                                    is_checked: 1
+                                }
+                            } else {
+                                return element;
+                            }
+                        });
                         return tmp;
                     });
                 }else{
@@ -154,12 +172,15 @@ export default ({ type, year, month, day, workers }) => {
             axios.post('https://alba-api.herokuapp.com/substitute/' + workplace_id +'/add', payload ).then(response =>{
                 if(response.data.result == "success"){
                     console.log(response)
+                    alert("대타 신청되었습니다.");
                     setSubstitute(curr => {
                         const tmp = curr.concat({
+                            id: -1,
                             employee_id: work.employee_id,
-                            name: work.employee_id,
+                            name: work.name,
                             time: work.start_time.split(":")[0] + ":" + work.start_time.split(":")[1] + " ~ " + work.end_time.split(":")[0] + ":" + work.end_time.split(":")[1],
-                            workplace_id: workplace_id
+                            workplace_id: workplace_id,
+                            is_checked: 0
                         });
                         return tmp;
                     });
