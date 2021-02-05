@@ -26,14 +26,14 @@ nav {
     margin-top: 80px;
     height: 100vh;
     margin: 0;
-    padding: 100px 240px 0px 240px;
+    padding: 95px 240px 0px 240px;
 }
 
 /* landingleft */
 .landing__left {
-    flex-basis: 45%;
-    padding: 3.2rem;
-    padding-top: 4rem;
+    flex-basis: 50%;
+    padding: 3.5rem;
+    padding-top: 3rem;
 }
 
 .landing__left__title {
@@ -68,27 +68,27 @@ nav {
     justify-content: center;
     margin-bottom: 2rem;
     align-items: center;
+    padding-top: 20px;
 }
 
 .landing__left__circleCnt > div {
-
     display: flex;
     justify-content: center;
     align-items: center;
-    width : 75px;
-    height : 75px;
+    width: 75px;
+    height: 75px;
     background-color: white;
-    border : 1px solid  #F5D11F;
-    margin : 1rem;
+    border: 1px solid #f5d11f;
+    margin: 1rem;
     border-radius: 50%;
 }
 
-.landing__left__circleCnt > div:hover{
+.landing__left__circleCnt > div:hover {
     transition: all linear 100ms;
     transform: scale(1.1);
 }
 
-.landing__left__circleCnt > div > i{
+.landing__left__circleCnt > div > i {
     font-size: 38px;
 
     width: 75px;
@@ -104,7 +104,6 @@ nav {
     border: 1px solid black;
     margin: 1rem;
     border-radius: 50%;
-
 }
 
 /* landing right */
@@ -141,6 +140,8 @@ nav {
 .landing__left__moreInfo {
     text-align: center;
     line-height: 20px;
+    color: #333333;
+    font-size: 0.8em;
 }
 
 .landing__right img {
